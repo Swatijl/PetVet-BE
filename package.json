@@ -1,0 +1,24 @@
+{
+  "name": "petvet-be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Swatijl/PetVet-BE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Swatijl/PetVet-BE/issues"
+  },
+  "homepage": "https://github.com/Swatijl/PetVet-BE#readme",
+  "dependencies": {
+    "heroku": "^7.67.1"
+  }
+}
