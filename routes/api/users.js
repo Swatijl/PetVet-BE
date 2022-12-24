@@ -1,20 +1,24 @@
 const express = require("express");
 const router = express.Router();
 
-let User = require("../../models/users.model");
+const User = require("../../models/users.model");
 
 router.get("/", (req, res) => {
-  var role = req.query.role;
-  var category = req.query.category;
+  let role = req.query.role;
+  let category = req.query.category;
   if (role && category) {
-    User.find({ role: role, specialization: category })
+    User.find({ role: role, specialization: category, status: "approved" })
       .then((users) => res.json(users))
       .catch((err) => res.status(400).json("Error: " + err));
-      return;
+  } else if (role && !category) {
+    User.find({ role: role, status: "approved" })
+      .then((users) => res.json(users))
+      .catch((err) => res.status(400).json("Error: " + err));
+  } else {
+    User.find({ status: "approved" })
+      .then((users) => res.json(users))
+      .catch((err) => res.status(400).json("Error: " + err));
   }
-  User.find()
-    .then((users) => res.json(users))
-    .catch((err) => res.status(400).json("Error: " + err));
 });
 
 router.get("/:id", (req, res) => {

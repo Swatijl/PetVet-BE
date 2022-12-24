@@ -23,8 +23,16 @@ const userSchema = new Schema({
     enum: ["pending", "approved", "rejected"],
     default: "pending",
   },
-  specialization: { type: String, enum: ["dog", "cat", "bird", "cattle", "all"] },
-  services: String
+  specialization: {
+    type: String,
+    enum: ["dog", "cat", "bird", "cattle", "all"],
+  },
+  services: String,
+  image: {
+    data: Buffer,
+    contentType: String,
+  },
+  about: String
 });
 
 const userModel = mongoose.model("User", userSchema);

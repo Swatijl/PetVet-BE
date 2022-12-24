@@ -39,6 +39,13 @@ connection.once("open", ()=>{
 const userRouter = require("./routes/api/users");
 app.use('/api/users', userRouter )
 
+const availabilityRouter = require("./routes/api/availability");
+app.use('/api/availability', availabilityRouter )
+
+const appointmentRouter = require("./routes/api/appointments");
+app.use('/api/appointments', appointmentRouter )
+
+
 app.listen(port, () => {
     console.log(`server is running on port ${port}`);
 });
